@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Bitly url minificator";
+}
+
+<div class="search-block">
+    <div class="input-group">
+        <input id="iUrl" type="text" class="form-control input-lg" 
+               oninput="$('#iUrl').popover('destroy');"
+               placeholder="Введите ссылку..." data-placement="bottom"
+               title="Введите URL" 
+               data-content="Необходимо ввести корректный URL. Например http://youtube.com/embed/?=11sskkiiuua" />
+        <span class="input-group-btn">
+            <button class="btn btn-lg btn-primary" type="button" onclick="minifyUrl();">Сжать</button>
+        </span>
+    </div>
+    <div id="result"></div>
+</div>
+

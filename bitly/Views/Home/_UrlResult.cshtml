@@ -1,0 +1,17 @@
+﻿@model bitly.Models.BitUrl
+@{ 
+    var shortUrl = Model.toShortUrl(MvcApplication.Minificator);
+}
+<div class="url-result-block">
+    <label>Ваша ссылка</label>
+    <div class="input-group">
+        <input id="iResultUrl" type="text" class="form-control" value="@shortUrl"/>
+        <span class="input-group-btn">
+            <button id="btnCopy" class="btn btn-default" type="button" onclick="copyToClipboard();">В буфер</button>
+        </span>
+    </div>
+    @if (shortUrl.Length >= Model.longUrl.Length)
+    {
+        <span>А был ли смысл укорачивать такую ссылку?))</span>
+    }
+</div>

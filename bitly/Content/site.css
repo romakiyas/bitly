@@ -1,0 +1,21 @@
+﻿.menu-link{
+    padding: 15px;
+}
+
+.search-block{
+    margin: 50px auto; max-width: 600px; 
+    padding: 15px;
+}
+
+.url-result-block{
+    margin-top: 30px;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.long-url{
+    display: block;
+    max-width: 300px;
+    overflow: hidden;
+}

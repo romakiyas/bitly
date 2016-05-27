@@ -1,0 +1,39 @@
+﻿@model IEnumerable<bitly.Models.BitUrl>
+
+@{
+    ViewBag.Title = "Мои ссылки";
+}
+
+<h2>@ViewBag.Title</h2>
+@if (Model.Count() > 0)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Сокращенная ссылка</th>
+                <th>Дата размещения</th>
+                <th>Оригинальная ссылка</th>
+                <th>Переходов</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr id="urlRow@(u.id)">
+                    <td>@u.toShortUrl(MvcApplication.Minificator)</td>
+                    <td>@u.appendDate.ToString()</td>
+                    <td><a href="@u.longUrl" target="_blank" rel="noopener noreferrer" class="long-url" title="@u.longUrl">@u.longUrl</a></td>
+                    <td>@u.clicks</td>
+                    <td><button onclick="deleteUrl(@u.id);" title="Удалить ссылку" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-remove"></span></button></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+} else
+{
+    <h3>Вы еще не создавали ссылок</h3>
+    <p>Воспользуйтесь <a href="@Url.Action("Index")">формой</a> на главной странице для создания короткой ссылки</p>
+}
+

@@ -1,0 +1,12 @@
+﻿@model bitly.Models.MenuState
+
+<div class="pull-right menu-link">
+    @if (Model != null)
+    {
+        <a href="@Url.Action(Model.action,Model.controller)">@Model.title</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Index","Home")">На главную</a>
+    }
+</div>
